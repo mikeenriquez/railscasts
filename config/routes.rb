@@ -11,6 +11,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :sponsors
   map.resources :comments
   map.resources :tags
+  
+  map.connect 'episodes/:id', :controller => 'episodes', :action => 'redirect', :id => /\d+/
   map.resources :episodes, :collection => { :archive => :get }
   map.resources :sessions
   

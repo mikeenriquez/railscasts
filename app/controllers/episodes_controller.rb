@@ -71,4 +71,9 @@ class EpisodesController < ApplicationController
     flash[:notice] = "Successfully destroyed episode."
     redirect_to episodes_path
   end
+  
+  def redirect
+    headers["Status"] = "301 Moved Permanently"
+    redirect_to Episode.find(params[:id])
+  end
 end
